@@ -44,6 +44,7 @@ header {
 main {
   padding: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -53,6 +54,7 @@ main {
   gap: 15px;
   width: 100%;
   max-width: 1200px;
+  align-self: center;
 }
 
 .gallery__item {
@@ -84,10 +86,11 @@ main {
 
 .loader {
   border: 8px solid #f3f3f3;
+  z-index: 9999;
   border-top: 8px solid #007bff;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   animation: spin 1s linear infinite;
   position: absolute;
   top: 50%;
@@ -106,4 +109,19 @@ main {
   100% {
     transform: rotate(360deg);
   }
+}
+
+
+.load-more {
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #9f9f9f;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.load-more.hidden {
+  display: none;
 }

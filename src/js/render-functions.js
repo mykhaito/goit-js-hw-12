@@ -24,3 +24,12 @@ export function renderGallery(images) {
   const gallery = document.querySelector('.gallery');
   gallery.innerHTML = images.map(createImageCard).join('');
 }
+
+export function renderLoadMoreButton(show) {
+  const loadMoreBtn = document.querySelector('.load-more');
+  if (show) {
+    loadMoreBtn.classList.remove('hidden');
+  } else {
+    loadMoreBtn.classList.add('hidden');
+  }
+}
