@@ -33,3 +33,16 @@ export function renderLoadMoreButton(show) {
     loadMoreBtn.classList.add('hidden');
   }
 }
+
+export function appendToGallery(images) {
+  const gallery = document.querySelector('.gallery');
+  gallery.insertAdjacentHTML(
+    'beforeend',
+    images.map(createImageCard).join('')
+  );
+}
+
+export function clearGallery() {
+  const gallery = document.querySelector('.gallery');
+  gallery.innerHTML = '';
+}

@@ -8,7 +8,7 @@ export async function fetchImages(query, page = 1) {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error('Ошибка при загрузке');
+      throw new Error('Error while fetching images');
     }
     const data = await response.json();
     return data;
