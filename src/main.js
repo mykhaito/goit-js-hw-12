@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderLoadMoreButton(false);
         iziToast.info({
           title: 'End of results',
-          message: "You've reached the end of search results.",
+          message: "We're sorry, but you've reached the end of search results.",
         });
       }
     } catch (error) {
