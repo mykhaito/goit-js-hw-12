@@ -9,6 +9,7 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import smoothscroll from 'smoothscroll-polyfill';
 
 let currentPage = 1;
 let currentQuery = '';
@@ -64,6 +65,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  function smoothScroll() {
+    const gallery = document.querySelector('.gallery');
+    const { height: cardHeight } = gallery.firstElementChild.getBoundingClientRect();
+  
+    window.scrollBy({
+      top: cardHeight * 4,
+      behavior: 'smooth',
+    });
+  }
+
   loadMoreBtn.addEventListener('click', async () => {
     currentPage += 1;
     document.querySelector('.loader').classList.remove('hidden');
@@ -71,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await fetchImages(currentQuery, currentPage);
       appendToGallery(data.hits);
       lightbox.refresh();
+      smoothScroll();
 
       if (currentPage * 15 >= totalHits || data.hits.length < 15) {
         renderLoadMoreButton(false);
